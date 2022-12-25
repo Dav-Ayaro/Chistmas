@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to left, rgb(128, 2, 2),rgb(106, 15, 197),rgb(2, 177, 177));
+    background-position: center center;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.container::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background: url(./tree.png);
+    z-index: 1;
+} 
+.container .circle{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 350px;
+    height: 350px;
+    background: url(./images/logo-5.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: red;
+    border-radius: 50%;
+}
+.container .circle::before{
+    content: '';
+    position: absolute;
+    inset: -200px -300px;
+    background: url(./santa\(3\).png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 600px;
+    animation: animate 5s ease-in-out infinite;
+}
+@keyframes animate{
+    0%,100%{
+        transform: translateY(-5%);
+    }
+    50%{
+        transform: translateY(10%);
+    }
+}
+
+.container .circle::after{
+    content: 'Merry Christmas';
+    position: absolute;
+    inset: -125px -200px;
+    font-size: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: #fff;
+}
+.container .snow{
+    position: relative;
+    display: flex;
+}
+.container .snow span{
+    position: relative;
+    min-width: 10px;
+    height: 10px;
+    background: whitesmoke;
+    border-radius: 50%;
+    margin: 0 1vw;
+    box-shadow: -100px 20px 6px rebeccapurple, 100px 20px 10px red;
+    animation: animatesnow 15s linear infinite;
+    animation-duration: calc(75s / var(--i));
+}
+.container .snow span:nth-child(even){
+    min-width: 10px;
+    height: 10px;
+}
+@keyframes animatesnow{
+    0%{
+        transform: translateY(-10vh);
+    }
+    100%{
+        transform: translateY(100vh);
+    }
+} 
+@media(max-width:1024px){
+    body{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container .circle::before{
+        content: '';
+        position: absolute;
+        inset: -200px -300px;
+        background: url(./santa\(3\).png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 300px;
+        animation: animate 5s ease-in-out infinite;
+    }
+    @keyframes animate{
+        0%,100%{
+            transform: translateY(-5%);
+        }
+        50%{
+            transform: translateY(10%);
+        }
+    }
+
+    .container .circle{
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%);
+        width: 350px;
+        height: 350px;
+        background: url(./images/logo-5.png);
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: red;
+        border-radius: 50%;
+    }
+
+    .container .circle::after{
+        content: 'Merry Christmas';
+        position: absolute;
+        inset: -125px -200px;
+        font-size: 2.5em;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        color: #fff;
+    }
+
+}
+@media(min-width:1025px){
+
+}
